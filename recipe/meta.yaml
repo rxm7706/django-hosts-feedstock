@@ -1,18 +1,18 @@
 {% set name = "django-hosts" %}
-{% set version = "6.0" %}
+{% set version = "7.0.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/django-hosts-{{ version }}.tar.gz
-  sha256: e7aec357504d36f384c65fba67deabc4552f36f347b96bb7a3d131a1250d7299
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 08006bc09f5af69638721ced0657f24044835a22a608732ee1004adc9c95fb7c
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 2
+  number: 0
 
 requirements:
   host:
